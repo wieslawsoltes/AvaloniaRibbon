@@ -234,47 +234,6 @@
     <Setter Property="Height" Value="182"/>
   </Style>
 
-  <Style Selector="local|GalleryItem">
-    <Setter Property="Background" Value="Transparent"/>
-    <Setter Property="BorderBrush" Value="Transparent"/>
-    <Setter Property="BorderThickness" Value="0"/>
-    <Setter Property="Padding" Value="2,1"/>
-    <Setter Property="Height" Value="{Binding $parent[local:Gallery].ItemHeight}"/>
-    <Setter Property="Template">
-      <ControlTemplate>
-        <Border x:Name="BackgroundBorder" Background="{TemplateBinding Background}"
-                          BorderBrush="{TemplateBinding BorderBrush}"
-                          BorderThickness="{TemplateBinding BorderThickness}">
-          <DockPanel HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="{TemplateBinding Padding}">
-            <TemplatedControl Width="16" Height="16" DockPanel.Dock="Left" VerticalAlignment="Center" Template="{TemplateBinding Icon}" Margin="0,0,4,0" Background="Transparent"/>
-            <ContentPresenter x:Name="PART_ContentPresenter" VerticalAlignment="Center" VerticalContentAlignment="Center" Content="{TemplateBinding Content}" HorizontalContentAlignment="Left" Background="Transparent"/>
-          </DockPanel>
-        </Border>
-      </ControlTemplate>
-    </Setter>
-  </Style>
-
-  <Style Selector="local|GalleryItem:pointerover /template/ Border#BackgroundBorder">
-    <Setter Property="Background" Value="{DynamicResource ThemeControlHighlightMidBrush}"/>
-  </Style>
-
-  <Style Selector="local|GalleryItem:selected /template/ Border#BackgroundBorder">
-    <Setter Property="Background" Value="{DynamicResource ThemeAccentBrush4}"/>
-  </Style>
-
-  <Style Selector="local|GalleryItem:selected:focus /template/ Border#BackgroundBorder">
-    <Setter Property="Background" Value="{DynamicResource ThemeAccentBrush3}"/>
-  </Style>
-
-  <Style Selector="local|GalleryItem:selected:pointerover /template/ Border#BackgroundBorder">
-    <Setter Property="Background" Value="{DynamicResource ThemeAccentBrush3}"/>
-  </Style>
-
-  <Style Selector="local|GalleryItem:selected:focus:pointerover /template/ Border#BackgroundBorder">
-    <Setter Property="Background" Value="{DynamicResource ThemeAccentBrush2}"/>
-  </Style>
-
-
   <Style Selector="local|Gallery /template/ RepeatButton,
                   local|Gallery /template/ ToggleButton">
     <Setter Property="BorderBrush" Value="{Binding BorderBrush, RelativeSource={RelativeSource Mode=TemplatedParent}}"/>
@@ -300,5 +259,40 @@
   </Style>
   <Style Selector="local|Gallery /template/ ToggleButton#PART_FlyoutButton /template/ ContentPresenter#PART_ContentPresenter">
     <Setter Property="CornerRadius" Value="0,0,3,0"/>
+  </Style>
+
+
+
+  <Style Selector="local|GalleryItem">
+    <Setter Property="Background" Value="Transparent"/>
+    <Setter Property="BorderBrush" Value="Transparent"/>
+    <Setter Property="BorderThickness" Value="0"/>
+    <Setter Property="Padding" Value="2,1"/>
+    <Setter Property="Height" Value="{Binding $parent[local:Gallery].ItemHeight}"/>
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border x:Name="BackgroundBorder" Background="{TemplateBinding Background}"
+                          BorderBrush="{TemplateBinding BorderBrush}"
+                          BorderThickness="{TemplateBinding BorderThickness}">
+          <DockPanel HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="{TemplateBinding Padding}">
+            <TemplatedControl Width="16" Height="16" DockPanel.Dock="Left" VerticalAlignment="Center" Template="{TemplateBinding Icon}" Margin="0,0,4,0" Background="Transparent"/>
+            <ContentPresenter x:Name="PART_ContentPresenter" VerticalAlignment="Center" VerticalContentAlignment="Center" Content="{TemplateBinding Content}" HorizontalContentAlignment="Left" Background="Transparent"/>
+          </DockPanel>
+        </Border>
+      </ControlTemplate>
+    </Setter>
+  </Style>
+  <Style Selector="local|GalleryItem /template/ Border#BackgroundBorder">
+    <Setter Property="CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
+  </Style>
+
+  <Style Selector="local|GalleryItem:pointerover /template/ Border#BackgroundBorder">
+    <Setter Property="Background" Value="{DynamicResource ToggleButtonBackgroundPointerOver}"/>
+  </Style>
+  <Style Selector="local|GalleryItem:selected /template/ Border#BackgroundBorder">
+    <Setter Property="Background" Value="{DynamicResource ToggleButtonBackgroundChecked}"/>
+  </Style>
+  <Style Selector="local|GalleryItem:selected:pointerover /template/ Border#BackgroundBorder">
+    <Setter Property="Background" Value="{DynamicResource ToggleButtonBackgroundCheckedPointerOver}"/>
   </Style>
 </Styles>

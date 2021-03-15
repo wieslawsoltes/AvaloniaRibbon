@@ -31,7 +31,9 @@
               </Grid.ColumnDefinitions>
               <!--Rectangle x:Name="RowDefinitionsHelper" IsHitTestVisible="False" Grid.Row="0" Grid.ColumnSpan="2"/-->
               <Rectangle x:Name="TitlebarFill" Fill="{TemplateBinding TitleBarBackground}" IsHitTestVisible="False" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="3"/>
-              <ContentPresenter x:Name="PART_ContentPresenter" Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" Background="{TemplateBinding Background}"/>
+              <VisualLayerManager x:Name="ContentLayerMgr">
+                <ContentPresenter x:Name="PART_ContentPresenter" Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" Background="{TemplateBinding Background}"/>
+              </VisualLayerManager>
               <ContentPresenter x:Name="PART_RibbonPresenter" Content="{TemplateBinding Ribbon}"/>
               <Panel x:Name="PART_TitleBar" Grid.Row="0" Grid.ColumnSpan="2" Background="#01000000" VerticalAlignment="Top">
                 <Image Classes="IconImage" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="0" Grid.ColumnSpan="2" Source="{Binding Icon, RelativeSource={RelativeSource Mode=TemplatedParent}, Converter={StaticResource WindowIconToImageConverter}}" MaxWidth="16" MaxHeight="16" Margin="9,0" IsHitTestVisible="False"/>
@@ -128,11 +130,11 @@
     <Setter Property="Grid.RowSpan" Value="2"/>
   </Style>
 
-  <Style Selector="local|RibbonWindow[Orientation=Horizontal] /template/ ContentPresenter#PART_ContentPresenter">
+  <Style Selector="local|RibbonWindow[Orientation=Horizontal] /template/ VisualLayerManager#ContentLayerMgr">
     <Setter Property="Grid.Row" Value="2"/>
     <Setter Property="Grid.ColumnSpan" Value="2"/>
   </Style>
-  <Style Selector="local|RibbonWindow[Orientation=Vertical] /template/ ContentPresenter#PART_ContentPresenter">
+  <Style Selector="local|RibbonWindow[Orientation=Vertical] /template/ VisualLayerManager#ContentLayerMgr">
     <Setter Property="Grid.Row" Value="1"/>
     <Setter Property="Grid.RowSpan" Value="2"/>
     <Setter Property="Grid.Column" Value="1"/>

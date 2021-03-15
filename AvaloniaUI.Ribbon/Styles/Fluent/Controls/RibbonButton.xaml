@@ -32,8 +32,8 @@
       <ControlTemplate>
         <Border Classes="RibbonButtonBackgroundBorder">
           <DockPanel>
-            <TemplatedControl Template="{TemplateBinding Icon}" DockPanel.Dock="Left" Width="16" Height="16"/>
-            <ContentPresenter Classes="MediumContentPresenter" Content="{TemplateBinding Content}" Margin="3,0,0,0" />
+            <TemplatedControl x:Name="PART_IconPresenter" Template="{TemplateBinding Icon}" DockPanel.Dock="Left" Width="16" Height="16"/>
+            <ContentPresenter x:Name="PART_ContentPresenter" Classes="MediumContentPresenter" Content="{TemplateBinding Content}" Margin="3,0,0,0" />
           </DockPanel>
         </Border>
       </ControlTemplate>
@@ -41,7 +41,7 @@
     <Setter Property="QuickAccessTemplate">
       <ControlTemplate>
         <Button Classes="quickAccessButton" Command="{Binding Command}" CommandParameter="{Binding CommandParameter}" ToolTip.Tip="{Binding ToolTip.Tip}" local:KeyTip.KeyTipKeys="{Binding KeyTip.Tip}" MinWidth="45" Height="34" Focusable="False">
-          <TemplatedControl Template="{Binding QuickAccessIcon}" Width="16" Height="16"/>
+          <TemplatedControl x:Name="PART_IconPresenter" Template="{Binding QuickAccessIcon}" Width="16" Height="16"/>
         </Button>
       </ControlTemplate>
     </Setter>
@@ -64,8 +64,8 @@
       <ControlTemplate>
         <Border Classes="RibbonButtonBackgroundBorder">
           <DockPanel VerticalAlignment="Stretch">
-            <TemplatedControl Template="{TemplateBinding LargeIcon}" DockPanel.Dock="Top" Width="32" Height="32"/>
-            <ContentPresenter Content="{TemplateBinding Content}" Margin="0,3,0,0" VerticalAlignment="Stretch"/>
+            <TemplatedControl x:Name="PART_IconPresenter" Template="{TemplateBinding LargeIcon}" DockPanel.Dock="Top" Width="32" Height="32"/>
+            <ContentPresenter x:Name="PART_ContentPresenter" Content="{TemplateBinding Content}" Margin="0,3,0,0" VerticalAlignment="Stretch"/>
           </DockPanel>
         </Border>
       </ControlTemplate>
@@ -86,7 +86,7 @@
     <Setter Property="Template">
       <ControlTemplate>
         <Border Classes="RibbonButtonBackgroundBorder">
-          <TemplatedControl Template="{TemplateBinding Icon}" Width="16" Height="16"/>
+          <TemplatedControl x:Name="PART_IconPresenter" Template="{TemplateBinding Icon}" Width="16" Height="16"/>
         </Border>
       </ControlTemplate>
     </Setter>
@@ -108,12 +108,69 @@
     <Setter Property="Padding" Value="{TemplateBinding Padding}"/>
     <Setter Property="CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
   </Style>
-  <Style Selector="local|RibbonButton:pointerover /template/ Border.RibbonButtonBackgroundBorder">
+  <!--Style Selector="local|RibbonButton:pointerover /template/ Border.RibbonButtonBackgroundBorder">
     <Setter Property="Background" Value="{DynamicResource ButtonBackgroundPointerOver}" />
     <Setter Property="BorderBrush" Value="{DynamicResource ButtonBorderBrushPointerOver}" />
   </Style>
   <Style Selector="local|RibbonButton:pressed /template/ Border.RibbonButtonBackgroundBorder">
     <Setter Property="Background" Value="{DynamicResource ButtonBackgroundDisabled}" />
     <Setter Property="BorderBrush" Value="{DynamicResource ButtonBorderBrushDisabled}" />
+  </Style-->
+  <Style Selector="local|RibbonButton:pointerover /template/ Border.RibbonButtonBackgroundBorder">
+    <Setter Property="Background" Value="{DynamicResource ButtonBackgroundPointerOver}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource ButtonBorderBrushPointerOver}" />
+  </Style>
+  <Style Selector="local|RibbonButton:pressed /template/ Border.RibbonButtonBackgroundBorder">
+    <Setter Property="Background" Value="{DynamicResource ButtonBackgroundPressed}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource ButtonBorderBrushPressed}" />
+  </Style>
+  <Style Selector="local|RibbonButton:disabled /template/ Border.RibbonButtonBackgroundBorder">
+    <Setter Property="Background" Value="{DynamicResource ButtonBackgroundDisabled}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource ButtonBorderBrushDisabled}" />
+  </Style>
+  <Style Selector="local|RibbonButton:checked /template/ Border.RibbonButtonBackgroundBorder">
+    <Setter Property="Background" Value="{DynamicResource ButtonBackgroundChecked}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource ButtonBorderBrushChecked}" />
+  </Style>
+  <Style Selector="local|RibbonButton:checked:pointerover /template/ Border.RibbonButtonBackgroundBorder">
+    <Setter Property="Background" Value="{DynamicResource ButtonBackgroundCheckedPointerOver}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource ButtonBorderBrushCheckedPointerOver}" />
+  </Style>
+  <Style Selector="local|RibbonButton:checked:pressed /template/ Border.RibbonButtonBackgroundBorder">
+    <Setter Property="Background" Value="{DynamicResource ButtonBackgroundCheckedPressed}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource ButtonBorderBrushCheckedPressed}" />
+  </Style>
+  <Style Selector="local|RibbonButton:checked:disabled /template/ Border.RibbonButtonBackgroundBorder">
+    <Setter Property="Background" Value="{DynamicResource ButtonBackgroundCheckedDisabled}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource ButtonBorderBrushCheckedDisabled}" />
+  </Style>
+
+  <Style Selector="local|RibbonButton:pointerover /template/ ContentPresenter#PART_ContentPresenter,
+                   local|RibbonButton:pointerover /template/ TemplatedControl#PART_IconPresenter">
+    <Setter Property="TextBlock.Foreground" Value="{DynamicResource ButtonForegroundPointerOver}" />
+  </Style>
+  <Style Selector="local|RibbonButton:pressed  /template/ ContentPresenter#PART_ContentPresenter,
+                   local|RibbonButton:pressed /template/ TemplatedControl#PART_IconPresenter">
+    <Setter Property="TextBlock.Foreground" Value="{DynamicResource ButtonForegroundPressed}" />
+  </Style>
+  <Style Selector="local|RibbonButton:disabled /template/ ContentPresenter#PART_ContentPresenter,
+                   local|RibbonButton:disabled /template/ TemplatedControl#PART_IconPresenter">
+    <Setter Property="TextBlock.Foreground" Value="{DynamicResource ButtonForegroundDisabled}" />
+  </Style>
+  <Style Selector="local|RibbonButton:checked /template/ ContentPresenter#PART_ContentPresenter,
+                   local|RibbonButton:checked /template/ TemplatedControl#PART_IconPresenter">
+    <Setter Property="TextBlock.Foreground" Value="{DynamicResource ButtonForegroundChecked}" />
+  </Style>
+  <Style Selector="local|RibbonButton:checked:pointerover /template/ ContentPresenter#PART_ContentPresenter,
+                   local|RibbonButton:checked:pointerover /template/ TemplatedControl#PART_IconPresenter">
+    <Setter Property="TextBlock.Foreground" Value="{DynamicResource ButtonForegroundCheckedPointerOver}" />
+  </Style>
+  <Style Selector="local|RibbonButton:checked:pressed /template/ ContentPresenter#PART_ContentPresenter,
+                   local|RibbonButton:checked:pressed /template/ TemplatedControl#PART_IconPresenter">
+    <Setter Property="TextBlock.Foreground" Value="{DynamicResource ButtonForegroundCheckedPressed}" />
+  </Style>
+  <Style Selector="local|RibbonButton:checked:disabled /template/ ContentPresenter#PART_ContentPresenter,
+                   local|RibbonButton:checked:disabled /template/ TemplatedControl#PART_IconPresenter">
+    <Setter Property="TextBlock.Foreground" Value="{DynamicResource ButtonForegroundCheckedDisabled}" />
   </Style>
 </Styles>
