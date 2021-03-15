@@ -26,24 +26,24 @@ namespace AvaloniaUI.Ribbon
         }
 
 
-        public static readonly StyledProperty<IControlTemplate> IconProperty = RibbonButton.IconProperty.AddOwner<RibbonDropDownButton>();
-        public IControlTemplate Icon
+        public static readonly StyledProperty<object> IconProperty = RibbonButton.IconProperty.AddOwner<RibbonDropDownButton>();
+        public object Icon
         {
             get => GetValue(IconProperty);
             set => SetValue(IconProperty, value);
         }
 
 
-        public static readonly StyledProperty<IControlTemplate> LargeIconProperty = RibbonButton.LargeIconProperty.AddOwner<RibbonDropDownButton>();
-        public IControlTemplate LargeIcon
+        public static readonly StyledProperty<object> LargeIconProperty = RibbonButton.LargeIconProperty.AddOwner<RibbonDropDownButton>();
+        public object LargeIcon
         {
             get => GetValue(LargeIconProperty);
             set => SetValue(LargeIconProperty, value);
         }
 
 
-        public static readonly StyledProperty<IControlTemplate> QuickAccessIconProperty = RibbonButton.QuickAccessIconProperty.AddOwner<RibbonToggleButton>();
-        public IControlTemplate QuickAccessIcon
+        public static readonly StyledProperty<object> QuickAccessIconProperty = RibbonButton.QuickAccessIconProperty.AddOwner<RibbonToggleButton>();
+        public object QuickAccessIcon
         {
             get => GetValue(QuickAccessIconProperty);
             set => SetValue(QuickAccessIconProperty, value);

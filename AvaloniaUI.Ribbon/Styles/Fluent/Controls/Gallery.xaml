@@ -2,6 +2,9 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:AvaloniaUI.Ribbon;assembly=AvaloniaUI.Ribbon">
+  <Styles.Resources>
+    <local:ObjectToTemplateConverter x:Key="ObjectToTemplateConverter"/>
+  </Styles.Resources>
   <Design.PreviewWith>
     <Grid Height="90">
       <local:Gallery>
@@ -275,7 +278,7 @@
                           BorderBrush="{TemplateBinding BorderBrush}"
                           BorderThickness="{TemplateBinding BorderThickness}">
           <DockPanel HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="{TemplateBinding Padding}">
-            <TemplatedControl Width="16" Height="16" DockPanel.Dock="Left" VerticalAlignment="Center" Template="{TemplateBinding Icon}" Margin="0,0,4,0" Background="Transparent"/>
+            <TemplatedControl Width="16" Height="16" DockPanel.Dock="Left" VerticalAlignment="Center" Template="{TemplateBinding Icon, Converter={StaticResource ObjectToTemplateConverter}}" Margin="0,0,4,0" Background="Transparent"/>
             <ContentPresenter x:Name="PART_ContentPresenter" VerticalAlignment="Center" VerticalContentAlignment="Center" Content="{TemplateBinding Content}" HorizontalContentAlignment="Left" Background="Transparent"/>
           </DockPanel>
         </Border>

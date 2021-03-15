@@ -2,13 +2,16 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:AvaloniaUI.Ribbon;assembly=AvaloniaUI.Ribbon">
+  <Styles.Resources>
+    <local:ObjectToTemplateConverter x:Key="ObjectToTemplateConverter"/>
+  </Styles.Resources>
 
   <Style Selector="local|RibbonSplitButton">
     <Setter Property="BorderThickness" Value="{DynamicResource ButtonBorderThemeThickness}" />
     <Setter Property="Padding" Value="3"/>
     <Setter Property="QuickAccessTemplate">
       <ControlTemplate>
-        <local:RibbonSplitButton Classes="quickAccessButton" DataContext="{Binding}" Command="{Binding Command}" CommandParameter="{Binding CommandParameter}" ToolTip.Tip="{Binding ToolTip.Tip}" local:KeyTip.KeyTipKeys="{Binding KeyTip.Tip}" Height="34" Focusable="False" Icon="{Binding QuickAccessIcon}" Size="Small" MinSize="Small" MaxSize="Small" Items="{Binding Items}"/>
+        <local:RibbonSplitButton Classes="quickAccessButton" DataContext="{Binding}" Command="{Binding Command}" CommandParameter="{Binding CommandParameter}" ToolTip.Tip="{Binding ToolTip.Tip}" local:KeyTip.KeyTipKeys="{Binding KeyTip.Tip}" Height="34" Focusable="False" Icon="{Binding QuickAccessIcon, Converter={StaticResource ObjectToTemplateConverter}}" Size="Small" MinSize="Small" MaxSize="Small" Items="{Binding Items}"/>
       </ControlTemplate>
     </Setter>
   </Style>
@@ -31,7 +34,7 @@
         <Border Classes="RibbonButtonBackgroundBorder">
           <StackPanel Orientation="Vertical">
             <Button Name="RibbonSplitButtonTopButton" Padding="{TemplateBinding Padding}" BorderThickness="0" Command="{TemplateBinding Command}" CommandParameter="{TemplateBinding CommandParameter}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
-              <TemplatedControl Template="{TemplateBinding LargeIcon}" />
+              <TemplatedControl Template="{TemplateBinding LargeIcon, Converter={StaticResource ObjectToTemplateConverter}}" Width="32" Height="32"/>
             </Button>
             <ToggleButton
                 Name="toggle"
@@ -127,7 +130,7 @@
             </ToggleButton>
             <Button Name="RibbonSplitButtonTopButton" BorderThickness="0" Command="{TemplateBinding Command}" CommandParameter="{TemplateBinding CommandParameter}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
               <StackPanel Orientation="Horizontal">
-                <TemplatedControl Template="{TemplateBinding Icon}" />
+                <TemplatedControl Template="{TemplateBinding Icon, Converter={StaticResource ObjectToTemplateConverter}}" />
                 <ContentPresenter Content="{TemplateBinding Content}" Margin="3,0,0,0" />
               </StackPanel>
             </Button>
@@ -182,7 +185,7 @@
               </Grid>
             </ToggleButton>
             <Button Name="RibbonSplitButtonTopButton" BorderThickness="0" Command="{TemplateBinding Command}" CommandParameter="{TemplateBinding CommandParameter}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="5,5,5,6">
-              <TemplatedControl Template="{TemplateBinding Icon}" />
+              <TemplatedControl Template="{TemplateBinding Icon, Converter={StaticResource ObjectToTemplateConverter}}" />
             </Button>
           </DockPanel>
         </Border>

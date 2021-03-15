@@ -13,9 +13,9 @@ namespace AvaloniaUI.Ribbon
         public static readonly AvaloniaProperty<RibbonControlSize> SizeProperty;
         public static readonly AvaloniaProperty<RibbonControlSize> MinSizeProperty;
         public static readonly AvaloniaProperty<RibbonControlSize> MaxSizeProperty;
-        public static readonly StyledProperty<IControlTemplate> IconProperty = AvaloniaProperty.Register<RibbonButton, IControlTemplate>(nameof(Icon));
-        public static readonly StyledProperty<IControlTemplate> LargeIconProperty = AvaloniaProperty.Register<RibbonButton, IControlTemplate>(nameof(LargeIcon));
-        public static readonly StyledProperty<IControlTemplate> QuickAccessIconProperty = AvaloniaProperty.Register<RibbonButton, IControlTemplate>(nameof(QuickAccessIcon));
+        public static readonly StyledProperty<object> IconProperty = AvaloniaProperty.Register<RibbonButton, object>(nameof(Icon));
+        public static readonly StyledProperty<object> LargeIconProperty = AvaloniaProperty.Register<RibbonButton, object>(nameof(LargeIcon));
+        public static readonly StyledProperty<object> QuickAccessIconProperty = AvaloniaProperty.Register<RibbonButton, object>(nameof(QuickAccessIcon));
 
         public static readonly StyledProperty<bool> CanAddToQuickAccessProperty = AvaloniaProperty.Register<RibbonButton, bool>(nameof(CanAddToQuickAccess), true);
         public bool CanAddToQuickAccess
@@ -32,19 +32,19 @@ namespace AvaloniaUI.Ribbon
 
         Type IStyleable.StyleKey => typeof(RibbonButton);
 
-        public IControlTemplate Icon
+        public object Icon
         {
             get => GetValue(IconProperty);
             set => SetValue(IconProperty, value);
         }
 
-        public IControlTemplate LargeIcon
+        public object LargeIcon
         {
             get => GetValue(LargeIconProperty);
             set => SetValue(LargeIconProperty, value);
         }
         
-        public IControlTemplate QuickAccessIcon
+        public object QuickAccessIcon
         {
             get => GetValue(QuickAccessIconProperty);
             set => SetValue(QuickAccessIconProperty, value);

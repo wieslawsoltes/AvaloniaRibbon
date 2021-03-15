@@ -14,9 +14,9 @@ namespace AvaloniaUI.Ribbon
         public static readonly AvaloniaProperty<RibbonControlSize> SizeProperty;
         public static readonly AvaloniaProperty<RibbonControlSize> MinSizeProperty;
         public static readonly AvaloniaProperty<RibbonControlSize> MaxSizeProperty;
-        public static readonly StyledProperty<IControlTemplate> IconProperty = RibbonButton.IconProperty.AddOwner<RibbonToggleButton>();
-        public static readonly StyledProperty<IControlTemplate> LargeIconProperty = RibbonButton.LargeIconProperty.AddOwner<RibbonToggleButton>();
-        public static readonly StyledProperty<IControlTemplate> QuickAccessIconProperty = RibbonButton.QuickAccessIconProperty.AddOwner<RibbonToggleButton>();
+        public static readonly StyledProperty<object> IconProperty = RibbonButton.IconProperty.AddOwner<RibbonToggleButton>();
+        public static readonly StyledProperty<object> LargeIconProperty = RibbonButton.LargeIconProperty.AddOwner<RibbonToggleButton>();
+        public static readonly StyledProperty<object> QuickAccessIconProperty = RibbonButton.QuickAccessIconProperty.AddOwner<RibbonToggleButton>();
 
 
         public static readonly StyledProperty<bool> CanAddToQuickAccessProperty = RibbonButton.CanAddToQuickAccessProperty.AddOwner<RibbonToggleButton>();
@@ -34,19 +34,19 @@ namespace AvaloniaUI.Ribbon
 
         Type IStyleable.StyleKey => typeof(RibbonToggleButton);
 
-        public IControlTemplate Icon
+        public object Icon
         {
             get => GetValue(IconProperty);
             set => SetValue(IconProperty, value);
         }
 
-        public IControlTemplate LargeIcon
+        public object LargeIcon
         {
             get => GetValue(LargeIconProperty);
             set => SetValue(LargeIconProperty, value);
         }
         
-        public IControlTemplate QuickAccessIcon
+        public object QuickAccessIcon
         {
             get => GetValue(QuickAccessIconProperty);
             set => SetValue(QuickAccessIconProperty, value);

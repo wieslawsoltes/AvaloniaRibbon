@@ -9,9 +9,9 @@ namespace AvaloniaUI.Ribbon
 {
     public class GalleryItem : ListBoxItem
     {
-        public static readonly StyledProperty<IControlTemplate> IconProperty = RibbonButton.IconProperty.AddOwner<GalleryItem>();
+        public static readonly StyledProperty<object> IconProperty = RibbonButton.IconProperty.AddOwner<GalleryItem>();
 
-        public IControlTemplate Icon
+        public object Icon
         {
             get => GetValue(IconProperty);
             set => SetValue(IconProperty, value);

@@ -31,8 +31,8 @@ namespace AvaloniaUI.Ribbon
         }
 
 
-        public static readonly StyledProperty<IControlTemplate> IconProperty = RibbonButton.IconProperty.AddOwner<RibbonDropDownItem>(); //AvaloniaProperty.Register<RibbonControlItem, IControlTemplate>(nameof(Icon));
-        public IControlTemplate Icon
+        public static readonly StyledProperty<object> IconProperty = RibbonButton.IconProperty.AddOwner<RibbonDropDownItem>();
+        public object Icon
         {
             get => GetValue(IconProperty);
             set => SetValue(IconProperty, value);

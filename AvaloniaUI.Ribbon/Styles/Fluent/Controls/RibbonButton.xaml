@@ -2,6 +2,9 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:AvaloniaUI.Ribbon;assembly=AvaloniaUI.Ribbon">
+  <Styles.Resources>
+    <local:ObjectToTemplateConverter x:Key="ObjectToTemplateConverter"/>
+  </Styles.Resources>
   <Design.PreviewWith>
     <Grid Height="90">
       <local:RibbonGroupBox Header="Group">
@@ -32,7 +35,7 @@
       <ControlTemplate>
         <Border Classes="RibbonButtonBackgroundBorder">
           <DockPanel>
-            <TemplatedControl x:Name="PART_IconPresenter" Template="{TemplateBinding Icon}" DockPanel.Dock="Left" Width="16" Height="16"/>
+            <TemplatedControl x:Name="PART_IconPresenter" Template="{TemplateBinding Icon, Converter={StaticResource ObjectToTemplateConverter}}" DockPanel.Dock="Left" Width="16" Height="16"/>
             <ContentPresenter x:Name="PART_ContentPresenter" Classes="MediumContentPresenter" Content="{TemplateBinding Content}" Margin="3,0,0,0" />
           </DockPanel>
         </Border>
@@ -41,7 +44,7 @@
     <Setter Property="QuickAccessTemplate">
       <ControlTemplate>
         <Button Classes="quickAccessButton" Command="{Binding Command}" CommandParameter="{Binding CommandParameter}" ToolTip.Tip="{Binding ToolTip.Tip}" local:KeyTip.KeyTipKeys="{Binding KeyTip.Tip}" MinWidth="45" Height="34" Focusable="False">
-          <TemplatedControl x:Name="PART_IconPresenter" Template="{Binding QuickAccessIcon}" Width="16" Height="16"/>
+          <TemplatedControl x:Name="PART_IconPresenter" Template="{Binding QuickAccessIcon, Converter={StaticResource ObjectToTemplateConverter}}" Width="16" Height="16"/>
         </Button>
       </ControlTemplate>
     </Setter>
@@ -64,7 +67,7 @@
       <ControlTemplate>
         <Border Classes="RibbonButtonBackgroundBorder">
           <DockPanel VerticalAlignment="Stretch">
-            <TemplatedControl x:Name="PART_IconPresenter" Template="{TemplateBinding LargeIcon}" DockPanel.Dock="Top" Width="32" Height="32"/>
+            <TemplatedControl x:Name="PART_IconPresenter" Template="{TemplateBinding LargeIcon, Converter={StaticResource ObjectToTemplateConverter}}" DockPanel.Dock="Top" Width="32" Height="32"/>
             <ContentPresenter x:Name="PART_ContentPresenter" Content="{TemplateBinding Content}" Margin="0,3,0,0" VerticalAlignment="Stretch"/>
           </DockPanel>
         </Border>
@@ -86,7 +89,7 @@
     <Setter Property="Template">
       <ControlTemplate>
         <Border Classes="RibbonButtonBackgroundBorder">
-          <TemplatedControl x:Name="PART_IconPresenter" Template="{TemplateBinding Icon}" Width="16" Height="16"/>
+          <TemplatedControl x:Name="PART_IconPresenter" Template="{TemplateBinding Icon, Converter={StaticResource ObjectToTemplateConverter}}" Width="16" Height="16"/>
         </Border>
       </ControlTemplate>
     </Setter>
