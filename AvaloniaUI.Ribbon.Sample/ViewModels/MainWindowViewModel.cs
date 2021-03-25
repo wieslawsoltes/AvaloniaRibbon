@@ -75,6 +75,49 @@ namespace AvaloniaUI.Ribbon.Samples.ViewModels
         }
 
 
+
+        bool _isRibbonCollapsed = false;
+
+        public bool IsRibbonCollapsed
+        {
+            get => _isRibbonCollapsed;
+            set
+            {
+                _isRibbonCollapsed = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+
+
+        bool _isRibbonVertical = false;
+
+        public bool IsRibbonVertical
+        {
+            get => _isRibbonVertical;
+            set
+            {
+                _isRibbonVertical = value;
+                if (_isRibbonVertical)
+                    RibbonOrientation = Avalonia.Layout.Orientation.Vertical;
+                else
+                    RibbonOrientation = Avalonia.Layout.Orientation.Horizontal;
+                NotifyPropertyChanged();
+            }
+        }
+
+        Avalonia.Layout.Orientation _ribbonOrientation = Avalonia.Layout.Orientation.Horizontal;
+        public Avalonia.Layout.Orientation RibbonOrientation
+        {
+            get => _ribbonOrientation;
+            set
+            {
+                _ribbonOrientation = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         public void NotifyPropertyChanged([CallerMemberName]string propertyName = "")

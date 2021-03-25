@@ -570,17 +570,20 @@ namespace AvaloniaUI.Ribbon
 
         private void UpdatePresenterLocation(bool intoFlyout)
         {
-            if (_groupsHost.Parent is IContentPresenter presenter)
-                presenter.Content = null;
-            else if (_groupsHost.Parent is ContentControl control)
-                control.Content = null;
-            else if (_groupsHost.Parent is Panel panel)
-                panel.Children.Remove(_groupsHost);
+            if (_groupsHost != null)
+            {
+                if (_groupsHost.Parent is IContentPresenter presenter)
+                    presenter.Content = null;
+                else if (_groupsHost.Parent is ContentControl control)
+                    control.Content = null;
+                else if (_groupsHost.Parent is Panel panel)
+                    panel.Children.Remove(_groupsHost);
 
-            if (intoFlyout)
-                _flyoutPresenter.Content = _groupsHost;
-            else
-                _mainPresenter.Content = _groupsHost;
+                if (intoFlyout)
+                    _flyoutPresenter.Content = _groupsHost;
+                else
+                    _mainPresenter.Content = _groupsHost;
+            }
         }
         
         protected override IItemContainerGenerator CreateItemContainerGenerator()

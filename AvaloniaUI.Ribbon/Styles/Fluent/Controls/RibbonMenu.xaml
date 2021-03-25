@@ -3,6 +3,9 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:AvaloniaUI.Ribbon;assembly=AvaloniaUI.Ribbon"
     xmlns:sys="clr-namespace:System;assembly=netstandard">
+  <Styles.Resources>
+    <local:ObjectToTemplateConverter x:Key="ObjectToTemplateConverter"/>
+  </Styles.Resources>
   <Style Selector="local|RibbonMenu">
     <Setter Property="Background" Value="{DynamicResource ThemeControlMidBrush}"/>
     <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderLowBrush}"/>
@@ -109,7 +112,7 @@
           </ToggleButton>
           <Button x:Name="PART_ContentButton" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Command="{TemplateBinding Command}" CommandParameter="{TemplateBinding CommandParameter}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center">
             <DockPanel HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="{TemplateBinding Padding}">
-              <ContentPresenter DockPanel.Dock="Left" Content="{TemplateBinding Icon}" Margin="0,0,4,0" Background="Transparent"/>
+              <TemplatedControl x:Name="PART_IconPresenter" Template="{TemplateBinding Icon, Converter={StaticResource ObjectToTemplateConverter}}" Width="32" Height="32" DockPanel.Dock="Left" Margin="0,0,4,0" Background="Transparent"/>
               <ContentPresenter VerticalAlignment="Center" VerticalContentAlignment="Center" Content="{TemplateBinding Header}" HorizontalContentAlignment="Left" Background="Transparent"/>
             </DockPanel>
           </Button>
