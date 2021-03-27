@@ -94,14 +94,21 @@ namespace AvaloniaUI.Ribbon
 
                 try
                 {
-                    var stUri = new Uri(inStr, UriKind.Absolute);
 
-                    var assetLoader = AvaloniaLocator.Current.GetService<IAssetLoader>();
                     Bitmap bmp = null;
-                    using (var stream = assetLoader.Open(stUri))
+                    try
                     {
-                        bmp = new Bitmap(stream);
+                        var assetLoader = AvaloniaLocator.Current.GetService<IAssetLoader>();
+                        using (var stream = assetLoader.Open(new Uri(inStr, UriKind.RelativeOrAbsolute)))
+                        {
+                            bmp = new Bitmap(stream);
+                        }
                     }
+                    catch
+                    {
+                        bmp = new Bitmap(inStr);
+                    }
+
                     if (!explicitSize)
                     {
                         explicitWidth = bmp.Size.Width;
