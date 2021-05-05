@@ -132,12 +132,16 @@ namespace AvaloniaUI.Ribbon
 
         void SetupSide(string name, StandardCursorType cursor, WindowEdge edge, ref TemplateAppliedEventArgs e)
         {
-            var control = e.NameScope.Get<Control>(name);
-            control.Cursor = new Cursor(cursor);
-            control.PointerPressed += (object sender, PointerPressedEventArgs ep) =>
+            try
             {
-                ((Window)this.GetVisualRoot()).PlatformImpl?.BeginResizeDrag(edge, ep);
-            };
+                var control = e.NameScope.Get<Control>("PART_" + name + "Edge");
+                control.Cursor = new Cursor(cursor);
+                control.PointerPressed += (object sender, PointerPressedEventArgs ep) =>
+                {
+                    ((Window)this.GetVisualRoot()).PlatformImpl?.BeginResizeDrag(edge, ep);
+                };
+            }
+            catch { }
         }
 
         T GetControl<T>(TemplateAppliedEventArgs e, string name) where T : class
@@ -178,22 +182,14 @@ namespace AvaloniaUI.Ribbon
                     }
                 };
 
-                try
-                {
-                    SetupSide("Left_top", StandardCursorType.LeftSide, WindowEdge.West, ref e);
-                    SetupSide("Left_mid", StandardCursorType.LeftSide, WindowEdge.West, ref e);
-                    SetupSide("Left_bottom", StandardCursorType.LeftSide, WindowEdge.West, ref e);
-                    SetupSide("Right_top", StandardCursorType.RightSide, WindowEdge.East, ref e);
-                    SetupSide("Right_mid", StandardCursorType.RightSide, WindowEdge.East, ref e);
-                    SetupSide("Right_bottom", StandardCursorType.RightSide, WindowEdge.East, ref e);
-                    SetupSide("Top", StandardCursorType.TopSide, WindowEdge.North, ref e);
-                    SetupSide("Bottom", StandardCursorType.BottomSide, WindowEdge.South, ref e);
-                    SetupSide("TopLeft", StandardCursorType.TopLeftCorner, WindowEdge.NorthWest, ref e);
-                    SetupSide("TopRight", StandardCursorType.TopRightCorner, WindowEdge.NorthEast, ref e);
-                    SetupSide("BottomLeft", StandardCursorType.BottomLeftCorner, WindowEdge.SouthWest, ref e);
-                    SetupSide("BottomRight", StandardCursorType.BottomRightCorner, WindowEdge.SouthEast, ref e);
-                }
-                catch { }
+                SetupSide("Left", StandardCursorType.LeftSide, WindowEdge.West, ref e);
+                SetupSide("TopLeft", StandardCursorType.TopLeftCorner, WindowEdge.NorthWest, ref e);
+                SetupSide("Top", StandardCursorType.TopSide, WindowEdge.North, ref e);
+                SetupSide("TopRight", StandardCursorType.TopRightCorner, WindowEdge.NorthEast, ref e);
+                SetupSide("Right", StandardCursorType.RightSide, WindowEdge.East, ref e);
+                SetupSide("BottomRight", StandardCursorType.BottomRightCorner, WindowEdge.SouthEast, ref e);
+                SetupSide("Bottom", StandardCursorType.BottomSide, WindowEdge.South, ref e);
+                SetupSide("BottomLeft", StandardCursorType.BottomLeftCorner, WindowEdge.SouthWest, ref e);
 
                 GetControl<Button>(e, "PART_MinimizeButton").Click += delegate
                 {

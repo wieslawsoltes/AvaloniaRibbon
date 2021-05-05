@@ -5,8 +5,6 @@
     xmlns:col="clr-namespace:System.Collections">
   <Styles.Resources>
     <local:WindowIconToImageConverter x:Key="WindowIconToImageConverter"/>
-    <!--local:DoubleBindingsToPointConverter x:Key="DoubleBindingsToPointConverter"/>
-    <local:DoubleArithmeticConverter x:Key="DoubleArithmeticConverter"/-->
   </Styles.Resources>
   <Style Selector="local|RibbonWindow">
     <Setter Property="BorderBrush">
@@ -70,45 +68,14 @@
             </Grid>
           </Border>
           <Grid Name="ResizeGrid" ColumnDefinitions="8,*,8" RowDefinitions="8,*,8">
-            <Border Name="TopLeft"/>
-            <Border
-                Name="TopRight"
-                Grid.Column="2"/>
-            <Border
-                Name="BottomLeft"
-                Grid.Row="2"/>
-            <Border
-                Name="BottomRight"
-                Grid.Row="2"
-                Grid.Column="2"/>
-            <Border
-                Name="Top"
-                Grid.Column="1"/>
-            <Border
-                Name="Right_top"
-                Grid.Row="0"
-                Grid.Column="2"/>
-            <Border
-                Name="Right_mid"
-                Grid.Row="0"
-                Grid.Column="2"/>
-            <Border
-                Name="Right_bottom"
-                Grid.Row="1"
-                Grid.Column="2"/>
-            <Border
-                Name="Bottom"
-                Grid.Row="2"
-                Grid.Column="1"/>
-            <Border
-                Name="Left_top"
-                Grid.Row="0"/>
-            <Border
-                Name="Left_mid"
-                Grid.Row="0"/>
-            <Border
-                Name="Left_bottom"
-                Grid.Row="1"/>
+            <Border Name="PART_LeftEdge" Grid.Row="1"/>
+            <Border Name="PART_TopLeftEdge"/>
+            <Border Name="PART_TopEdge" Grid.Column="1"/>
+            <Border Name="PART_TopRightEdge" Grid.Column="2"/>
+            <Border Name="PART_RightEdge" Grid.Column="2" Grid.Row="1"/>
+            <Border Name="PART_BottomRightEdge" Grid.Row="2" Grid.Column="2"/>
+            <Border Name="PART_BottomEdge" Grid.Row="2" Grid.Column="1"/>
+            <Border Name="PART_BottomLeftEdge" Grid.Row="2"/>
           </Grid>
         </Panel>
       </ControlTemplate>
