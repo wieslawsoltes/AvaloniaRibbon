@@ -1,0 +1,54 @@
+﻿<ribbon:RibbonTab
+    x:Class="AvaloniaUI.Ribbon.Samples.Views.IconTypesTab"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:AvaloniaUI.Ribbon.Samples.ViewModels;assembly=AvaloniaUI.Ribbon.Sample"
+    xmlns:ribbon="clr-namespace:AvaloniaUI.Ribbon;assembly=AvaloniaUI.Ribbon"
+    mc:Ignorable="d"
+    Header="Icon types" ribbon:KeyTip.KeyTipKeys="B">
+  <ribbon:RibbonTab.Groups>
+    <ribbon:RibbonGroupBox Header="Visual-ish icons">
+      <ribbon:RibbonButton Content="Template Icon" CanAddToQuickAccess="False" MaxWidth="150">
+        <ribbon:RibbonButton.LargeIcon>
+          <ControlTemplate>
+            <Border Width="24" Height="24" Margin="4" BoxShadow="2 2 2 #FFFF00FF" Background="#FF00FF00"/>
+          </ControlTemplate>
+        </ribbon:RibbonButton.LargeIcon>
+      </ribbon:RibbonButton>
+      <ribbon:RibbonButton Content="Control Icon" CanAddToQuickAccess="False" MaxWidth="150">
+        <ribbon:RibbonButton.LargeIcon>
+          <Border>
+            <Border Width="24" Height="24" Margin="4" BoxShadow="-2 -2 2 #FFFF00FF" Background="#FF00FF00"/>
+          </Border>
+        </ribbon:RibbonButton.LargeIcon>
+      </ribbon:RibbonButton>
+      <ribbon:RibbonButton Content="Geometry Icon" CanAddToQuickAccess="False" MaxWidth="150">
+        <ribbon:RibbonButton.LargeIcon>
+          <RectangleGeometry Rect="0,0,32,32"/>
+        </ribbon:RibbonButton.LargeIcon>
+      </ribbon:RibbonButton>
+      <ribbon:RibbonButton Content="Drawing Icon" CanAddToQuickAccess="False" MaxWidth="150">
+        <ribbon:RibbonButton.LargeIcon>
+          <DrawingGroup>
+            <GeometryDrawing Geometry="M 8 8 L 28 8 L 28 28 L 8 28 Z" Brush="#FFFF00FF"/>
+            <GeometryDrawing Geometry="M 0 0 L 20 0 L 20 20 L 0 20 Z" Brush="#FF00FF00"/>
+          </DrawingGroup>
+        </ribbon:RibbonButton.LargeIcon>
+      </ribbon:RibbonButton>
+    </ribbon:RibbonGroupBox>
+    <ribbon:RibbonGroupBox Header="*.ico Uri icons">
+      <ribbon:RibbonButton Content="avares:// *.ico icon" MinSize="Medium" MaxSize="Medium" CanAddToQuickAccess="False" Icon="avares://AvaloniaUI.Ribbon.Sample/Assets/ico-image.ico"/>
+      <ribbon:RibbonButton Content="Resized avares:// *.ico icon" MinSize="Medium" MaxSize="Medium" CanAddToQuickAccess="False" Icon="Size(16, 16); avares://AvaloniaUI.Ribbon.Sample/Assets/ico-image.ico"/>
+    </ribbon:RibbonGroupBox>
+    <ribbon:RibbonGroupBox Header="*.png Uri icons">
+      <ribbon:RibbonButton Content="avares:// *.png icon" MinSize="Medium" MaxSize="Medium" CanAddToQuickAccess="False" Icon="avares://AvaloniaUI.Ribbon.Sample/Assets/png-image.png"/>
+      <ribbon:RibbonButton Content="Resized avares:// *.png icon" MinSize="Medium" MaxSize="Medium" CanAddToQuickAccess="False" Icon="Size(16, 16); avares://AvaloniaUI.Ribbon.Sample/Assets/png-image.png"/>
+    </ribbon:RibbonGroupBox>
+    <ribbon:RibbonGroupBox Header="Path data icons">
+      <ribbon:RibbonButton Content="Path data icon" MinSize="Medium" MaxSize="Medium" CanAddToQuickAccess="False" Icon="M 0 0 L 6 26 L 32 32 L 0 32 Z"/>
+      <ribbon:RibbonButton Content="Resized path data icon" MinSize="Medium" MaxSize="Medium" CanAddToQuickAccess="False" Icon="Size(16, 16); M 0 0 L 6 26 L 32 32 L 0 32 Z"/>
+    </ribbon:RibbonGroupBox>
+  </ribbon:RibbonTab.Groups>
+</ribbon:RibbonTab>

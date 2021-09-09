@@ -173,5 +173,7 @@ namespace AvaloniaUI.Ribbon
                 timer.Start();
             }
         }
+
+        Type IStyleable.StyleKey => typeof(RibbonMenu);
     }
 }

@@ -1,0 +1,20 @@
+﻿<ribbon:RibbonContextualTabGroup
+    x:Class="AvaloniaUI.Ribbon.Samples.Views.ContextualTabGroup2"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:AvaloniaUI.Ribbon.Samples.ViewModels;assembly=AvaloniaUI.Ribbon.Sample"
+    xmlns:ribbon="clr-namespace:AvaloniaUI.Ribbon;assembly=AvaloniaUI.Ribbon"
+    mc:Ignorable="d"
+    Header="Contextual Group 2" Background="Green" IsVisible="{Binding ShowContextualGroup2}">
+  <ribbon:RibbonTab Header="This tab's name is really long" ribbon:KeyTip.KeyTipKeys="T">
+    <ribbon:RibbonTab.Groups>
+      <ribbon:RibbonGroupBox Header="Another bloody group" Command="{Binding OnClickCommand}" ribbon:KeyTip.KeyTipKeys="D1">
+        <ribbon:RibbonButton Content="Button 1" MinSize="Medium" ToolTip.Tip="Button 1" ribbon:KeyTip.KeyTipKeys="A" LargeIcon="{DynamicResource Icon1Large}" Icon="{DynamicResource Icon1}" QuickAccessIcon="{DynamicResource Icon1QuickAccess}"/>
+        <ribbon:RibbonButton Content="Button 2" MinSize="Medium" ToolTip.Tip="Button 2" ribbon:KeyTip.KeyTipKeys="B" LargeIcon="{DynamicResource Icon2Large}" Icon="{DynamicResource Icon2}" QuickAccessIcon="{DynamicResource Icon2QuickAccess}"/>
+        <ribbon:RibbonButton Content="Button 3" MinSize="Medium" ToolTip.Tip="Button 3" ribbon:KeyTip.KeyTipKeys="C" LargeIcon="{DynamicResource Icon2Large}" Icon="{DynamicResource Icon2}" QuickAccessIcon="{DynamicResource Icon2QuickAccess}"/>
+      </ribbon:RibbonGroupBox>
+    </ribbon:RibbonTab.Groups>
+  </ribbon:RibbonTab>
+</ribbon:RibbonContextualTabGroup>

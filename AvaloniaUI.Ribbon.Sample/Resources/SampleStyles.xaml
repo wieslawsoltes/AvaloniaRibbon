@@ -1,0 +1,29 @@
+﻿<Styles
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ribbon="clr-namespace:AvaloniaUI.Ribbon;assembly=AvaloniaUI.Ribbon">
+    <Style Selector="CheckBox TextBlock">
+      <Setter Property="TextWrapping" Value="Wrap"/>
+    </Style>
+
+    <Style Selector="ribbon|RibbonGroupBox">
+      <Setter Property="Command" Value="{Binding OnClickCommand}"/>
+      <Setter Property="CommandParameter" Value="{Binding Path=Header, RelativeSource={RelativeSource Mode=Self}}"/>
+    </Style>
+    <Style Selector="ribbon|RibbonButton,ribbon|RibbonToggleButton">
+      <Setter Property="Command" Value="{Binding OnClickCommand}"/>
+      <Setter Property="CommandParameter" Value="{Binding Path=Content, RelativeSource={RelativeSource Mode=Self}}"/>
+    </Style>
+    <Style Selector="ribbon|RibbonButton[Size=Small],ribbon|RibbonToggleButton[Size=Small]">
+      <Setter Property="CommandParameter" Value="{Binding Path=(ToolTip.Tip), RelativeSource={RelativeSource Mode=Self}}"/>
+    </Style>
+    <Style Selector="ribbon|RibbonSplitButton">
+      <Setter Property="Command" Value="{Binding OnClickCommand}"/>
+      <Setter Property="CommandParameter" Value="{Binding Path=Content, RelativeSource={RelativeSource Mode=Self}}"/>
+    </Style>
+    <Style Selector="ribbon|RibbonSplitButton[Size=Small]">
+      <Setter Property="CommandParameter" Value="{Binding Path=(ToolTip.Tip), RelativeSource={RelativeSource Mode=Self}}"/>
+    </Style>
+</Styles>

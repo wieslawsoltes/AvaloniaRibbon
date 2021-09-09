@@ -1,0 +1,26 @@
+﻿<ribbon:Ribbon
+    x:Class="AvaloniaUI.Ribbon.Samples.Views.MainRibbon"
+    x:Name="MainRibbon"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:AvaloniaUI.Ribbon.Samples.ViewModels;assembly=AvaloniaUI.Ribbon.Sample"
+    xmlns:v="clr-namespace:AvaloniaUI.Ribbon.Samples.Views;assembly=AvaloniaUI.Ribbon.Sample"
+    xmlns:ribbon="clr-namespace:AvaloniaUI.Ribbon;assembly=AvaloniaUI.Ribbon"
+    mc:Ignorable="d"
+    HelpButtonCommand="{Binding HelpCommand}" IsCollapsed="{Binding IsRibbonCollapsed, Mode=TwoWay}">
+  <ribbon:Ribbon.Menu>
+    <v:MainRibbonMenu/>
+  </ribbon:Ribbon.Menu>
+  <ribbon:Ribbon.Tabs>
+    <v:HomeTab/>
+    <v:ButtonsTab/>
+    <v:IconTypesTab/>
+    <v:GalleriesTab/>
+    <ribbon:RibbonTab Header="Invisible tab" IsVisible="False"/>
+    <v:ContextualTabGroup1/>
+    <v:ContextualTabGroup2/>
+    <v:ContextualTabGroup3/>
+  </ribbon:Ribbon.Tabs>
+</ribbon:Ribbon>

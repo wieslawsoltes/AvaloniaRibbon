@@ -1,0 +1,18 @@
+﻿<ribbon:RibbonContextualTabGroup
+    x:Class="AvaloniaUI.Ribbon.Samples.Views.ContextualTabGroup3"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:AvaloniaUI.Ribbon.Samples.ViewModels;assembly=AvaloniaUI.Ribbon.Sample"
+    xmlns:ribbon="clr-namespace:AvaloniaUI.Ribbon;assembly=AvaloniaUI.Ribbon"
+    mc:Ignorable="d"
+    Header="Contextual Group 3 with a very long name" Background="Yellow" IsVisible="{Binding ShowContextualGroup3}">
+  <ribbon:RibbonTab Header="lol" ribbon:KeyTip.KeyTipKeys="T">
+    <ribbon:RibbonTab.Groups>
+      <ribbon:RibbonGroupBox Header="lmao" Command="{Binding OnClickCommand}" ribbon:KeyTip.KeyTipKeys="D1">
+        <ribbon:RibbonButton Content="no u" MinSize="Small" ToolTip.Tip="no u" ribbon:KeyTip.KeyTipKeys="N" LargeIcon="{DynamicResource Icon1Large}" Icon="{DynamicResource Icon1}" QuickAccessIcon="{DynamicResource Icon1QuickAccess}"/>
+      </ribbon:RibbonGroupBox>
+    </ribbon:RibbonTab.Groups>
+  </ribbon:RibbonTab>
+</ribbon:RibbonContextualTabGroup>

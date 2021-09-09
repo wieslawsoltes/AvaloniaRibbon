@@ -1,0 +1,118 @@
+﻿<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006">
+  <ControlTemplate x:Key="Icon1">
+      <Panel Width="14" Height="15">
+        <Border Width="11" Height="12" BorderBrush="#FFFB983B" BorderThickness="1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,2,0,0">
+          <Border.Clip>
+            <PathGeometry>
+              <PathFigure StartPoint="0,0" IsClosed="True">
+                  <LineSegment Point="2,0"/>
+                  <LineSegment Point="2,3"/>
+                  <LineSegment Point="9,3"/>
+                  <LineSegment Point="9,0"/>
+                  <LineSegment Point="11,0"/>
+                  <LineSegment Point="11,4"/>
+                  <LineSegment Point="6,4"/>
+                  <LineSegment Point="6,12"/>
+                  <LineSegment Point="0,12"/>
+              </PathFigure>
+            </PathGeometry>
+          </Border.Clip>
+          <Border BorderBrush="#FFF8DB8F" BorderThickness="1"/>
+        </Border>
+        <Path Data="M 2.5 3.5 L 2.5 1.5 L 3.5 1.5 L 4.5 0.5 L 6.5 0.5 L 7.5 1.5 L 8.5 1.5 L 8.5 3.5 Z" Stroke="{Binding $parent[TemplatedControl].Foreground}" StrokeThickness="1" Opacity="0.625"/>
+        <Border HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="7" Height="9" BorderBrush="{Binding $parent[TemplatedControl].Foreground}" BorderThickness="1">
+          <StackPanel Orientation="Vertical" Opacity="0.75" Spacing="1" VerticalAlignment="Center">
+            <Rectangle Width="3" Height="1" Fill="{Binding $parent[TemplatedControl].Foreground}"/>
+            <Rectangle Width="3" Height="1" Fill="{Binding $parent[TemplatedControl].Foreground}"/>
+            <Rectangle Width="3" Height="1" Fill="{Binding $parent[TemplatedControl].Foreground}"/>
+          </StackPanel>
+        </Border>
+      </Panel>
+    </ControlTemplate>
+    <ControlTemplate x:Key="Icon1Large">
+      <Panel Width="27" Height="30" Margin="0,0,1,0">
+        <Border Width="21" Height="24" BorderBrush="#FFFB983B" BorderThickness="1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,4,0,0">
+          <Border.Clip>
+            <PathGeometry>
+              <PathFigure StartPoint="0,0" IsClosed="True">
+                  <LineSegment Point="4,0"/>
+                  <LineSegment Point="4,3"/>
+                  <LineSegment Point="17,3"/>
+                  <LineSegment Point="17,0"/>
+                  <LineSegment Point="21,0"/>
+                  <LineSegment Point="21,7"/>
+                  <LineSegment Point="12,7"/>
+                  <LineSegment Point="12,24"/>
+                  <LineSegment Point="0,24"/>
+              </PathFigure>
+            </PathGeometry>
+          </Border.Clip>
+          <Border BorderBrush="#FFF8DB8F" BorderThickness="1"/>
+        </Border>
+        <Path Data="M 4.5 3.5 L 7.5 3.5 L 9.5 0.5 L 11.5 0.5 L 13.5 3.5 L 16.5 3.5 L 16.5 7.5 L 4.5 7.5 Z" Stroke="{Binding $parent[TemplatedControl].Foreground}" StrokeThickness="1" Opacity="0.625"/>
+        <Border HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="14" Height="18" BorderBrush="{Binding $parent[TemplatedControl].Foreground}" BorderThickness="1">
+          <StackPanel Orientation="Vertical" Opacity="0.75" Spacing="3" VerticalAlignment="Center">
+            <Rectangle Width="6" Height="1" Fill="{Binding $parent[TemplatedControl].Foreground}"/>
+            <Rectangle Width="6" Height="1" Fill="{Binding $parent[TemplatedControl].Foreground}"/>
+            <Rectangle Width="6" Height="1" Fill="{Binding $parent[TemplatedControl].Foreground}"/>
+          </StackPanel>
+        </Border>
+      </Panel>
+    </ControlTemplate>
+    <ControlTemplate x:Key="Icon1QuickAccess">
+      <Panel Width="14" Height="15">
+        <Border Width="11" Height="12" BorderBrush="{Binding $parent[TemplatedControl].Foreground}" BorderThickness="1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,2,0,0">
+          <Border.Clip>
+            <PathGeometry>
+              <PathFigure StartPoint="0,0" IsClosed="True">
+                  <LineSegment Point="2,0"/>
+                  <LineSegment Point="2,3"/>
+                  <LineSegment Point="9,3"/>
+                  <LineSegment Point="9,0"/>
+                  <LineSegment Point="11,0"/>
+                  <LineSegment Point="11,4"/>
+                  <LineSegment Point="6,4"/>
+                  <LineSegment Point="6,12"/>
+                  <LineSegment Point="0,12"/>
+              </PathFigure>
+            </PathGeometry>
+          </Border.Clip>
+        </Border>
+        <Path Data="M 2.5 3.5 L 2.5 1.5 L 3.5 1.5 L 4.5 0.5 L 6.5 0.5 L 7.5 1.5 L 8.5 1.5 L 8.5 3.5 Z" Stroke="{Binding $parent[TemplatedControl].Foreground}" StrokeThickness="1"/>
+        <Border HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="7" Height="9" BorderBrush="{Binding $parent[TemplatedControl].Foreground}" BorderThickness="1">
+          <StackPanel Orientation="Vertical" Spacing="1" VerticalAlignment="Center">
+            <Rectangle Width="3" Height="1" Fill="{Binding $parent[TemplatedControl].Foreground}"/>
+            <Rectangle Width="3" Height="1" Fill="{Binding $parent[TemplatedControl].Foreground}"/>
+            <Rectangle Width="3" Height="1" Fill="{Binding $parent[TemplatedControl].Foreground}"/>
+          </StackPanel>
+        </Border>
+      </Panel>
+    </ControlTemplate>
+
+
+    <ControlTemplate x:Key="Icon2">
+      <Panel Width="16" Height="16">
+        <Path Data="M 0.5 0.5 L 15.5 0.5 L 15.5 15.5 L 2.5 15.5 L 0.5 13.5 Z" Fill="#FFD998DD" Stroke="#FF563457" StrokeThickness="1"/>
+        <Border Background="White" BorderBrush="#7F563457" BorderThickness="1,0,1,1" Margin="1" HorizontalAlignment="Center" VerticalAlignment="Top" Width="10" Height="6"/>
+        <Border Background="White" BorderBrush="#7F563457" BorderThickness="1,1,1,0" Margin="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="8" Height="5"/>
+      </Panel>
+    </ControlTemplate>
+    <ControlTemplate x:Key="Icon2Large">
+      <Panel Width="27" Height="27">
+        <Path Data="M 0.5 0.5 L 26.5 0.5 L 26.5 26.5 L 3.5 26.5 L 0.5 23.5 Z" Fill="#FFD998DD" Stroke="#FF563457" StrokeThickness="1"/>
+        <Border Background="White" BorderBrush="#7F563457" BorderThickness="1,0,1,1" Margin="1" HorizontalAlignment="Center" VerticalAlignment="Top" Width="19" Height="12"/>
+        <Border Background="White" BorderBrush="#7F563457" BorderThickness="1,1,1,0" Margin="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="11" Height="7"/>
+      </Panel>
+    </ControlTemplate>
+    <ControlTemplate x:Key="Icon2QuickAccess">
+      <Panel Width="16" Height="16">
+        <Path Data="M 0.5 0.5 L 15.5 0.5 L 15.5 15.5 L 2.5 15.5 L 0.5 13.5 Z" Stroke="{Binding $parent[Button ].Foreground}" StrokeThickness="1"/>
+        <Border BorderBrush="{Binding $parent[TemplatedControl].Foreground}" BorderThickness="1,0,1,1" Margin="1" HorizontalAlignment="Center" VerticalAlignment="Top" Width="10" Height="6"/>
+        <Border BorderBrush="{Binding $parent[TemplatedControl].Foreground}" BorderThickness="1,1,1,0" Margin="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="8" Height="5"/>
+      </Panel>
+    </ControlTemplate>
+</ResourceDictionary>

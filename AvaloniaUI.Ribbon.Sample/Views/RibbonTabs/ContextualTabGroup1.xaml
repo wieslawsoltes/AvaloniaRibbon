@@ -1,0 +1,181 @@
+﻿<ribbon:RibbonContextualTabGroup
+    x:Class="AvaloniaUI.Ribbon.Samples.Views.ContextualTabGroup1"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:AvaloniaUI.Ribbon.Samples.ViewModels;assembly=AvaloniaUI.Ribbon.Sample"
+    xmlns:ribbon="clr-namespace:AvaloniaUI.Ribbon;assembly=AvaloniaUI.Ribbon"
+    mc:Ignorable="d"
+    Header="Contextual Group 1" Background="Red" IsVisible="{Binding ShowContextualGroup1}">
+  <ribbon:RibbonTab Header="Test A" ribbon:KeyTip.KeyTipKeys="T">
+    <ribbon:RibbonTab.Groups>
+      <ribbon:RibbonGroupBox Header="Test Group" Command="{Binding OnClickCommand}" ribbon:KeyTip.KeyTipKeys="D1">
+        <ribbon:RibbonButton Content="On" MinSize="Large" ToolTip.Tip="On" ribbon:KeyTip.KeyTipKeys="A">
+          <ribbon:RibbonButton.LargeIcon>
+            <ControlTemplate>
+              <Panel Width="32" Height="32">
+                <Ellipse Stroke="{Binding $parent[TemplatedControl].Foreground}" StrokeThickness="4" Margin="2,4,2,0">
+                  <Ellipse.Clip>
+                    <PathGeometry>
+                      <PathFigure StartPoint="0,0" IsClosed="True">
+                          <LineSegment Point="8,0"/>
+                          <LineSegment Point="8,11"/>
+                          <LineSegment Point="19,11"/>
+                          <LineSegment Point="19,0"/>
+                          <LineSegment Point="28,0"/>
+                          <LineSegment Point="28,28"/>
+                          <LineSegment Point="0,28"/>
+                      </PathFigure>
+                    </PathGeometry>
+                  </Ellipse.Clip>
+                </Ellipse>
+                <Rectangle Width="4" Margin="0,0,0,9" Fill="{Binding $parent[TemplatedControl].Foreground}"/>
+              </Panel>
+            </ControlTemplate>
+          </ribbon:RibbonButton.LargeIcon>
+          <ribbon:RibbonButton.QuickAccessIcon>
+            <ControlTemplate>
+              <Panel Width="16" Height="16">
+                <Ellipse Stroke="{Binding $parent[TemplatedControl].Foreground}" StrokeThickness="2" Margin="1,2,1,0">
+                  <Ellipse.Clip>
+                    <PathGeometry>
+                      <PathFigure StartPoint="0,0" IsClosed="True">
+                          <LineSegment Point="4,0"/>
+                          <LineSegment Point="4,6"/>
+                          <LineSegment Point="10,6"/>
+                          <LineSegment Point="10,0"/>
+                          <LineSegment Point="14,0"/>
+                          <LineSegment Point="14,14"/>
+                          <LineSegment Point="0,14"/>
+                      </PathFigure>
+                    </PathGeometry>
+                  </Ellipse.Clip>
+                </Ellipse>
+                <Rectangle Width="2" Margin="0,1,0,5" Fill="{Binding $parent[TemplatedControl].Foreground}"/>
+              </Panel>
+            </ControlTemplate>
+          </ribbon:RibbonButton.QuickAccessIcon>
+        </ribbon:RibbonButton>
+        <ribbon:RibbonButton Content="Off" MinSize="Large" ToolTip.Tip="Off" ribbon:KeyTip.KeyTipKeys="B">
+          <ribbon:RibbonButton.LargeIcon>
+            <ControlTemplate>
+              <Panel Width="32" Height="32">
+                <Ellipse Stroke="{Binding $parent[TemplatedControl].Foreground}" StrokeThickness="4"/>
+                <Rectangle Width="4" Margin="0,9" Fill="{Binding $parent[TemplatedControl].Foreground}"/>
+              </Panel>
+            </ControlTemplate>
+          </ribbon:RibbonButton.LargeIcon>
+          <ribbon:RibbonButton.QuickAccessIcon>
+            <ControlTemplate>
+              <Panel Width="16" Height="16">
+                <Ellipse Stroke="{Binding $parent[TemplatedControl].Foreground}" StrokeThickness="2"/>
+                <Rectangle Width="2" Margin="0,4" Fill="{Binding $parent[TemplatedControl].Foreground}"/>
+              </Panel>
+            </ControlTemplate>
+          </ribbon:RibbonButton.QuickAccessIcon>
+        </ribbon:RibbonButton>
+      </ribbon:RibbonGroupBox>
+    </ribbon:RibbonTab.Groups>
+  </ribbon:RibbonTab>
+  <ribbon:RibbonTab Header="Test B" ribbon:KeyTip.KeyTipKeys="Q">
+    <ribbon:RibbonTab.Groups>
+      <ribbon:RibbonGroupBox Header="Group" Command="{Binding OnClickCommand}" ribbon:KeyTip.KeyTipKeys="D1">
+        <ribbon:RibbonButton Content="Yes" MinSize="Large" ToolTip.Tip="Yes" ribbon:KeyTip.KeyTipKeys="Y" QuickAccessIcon="{Binding Icon, RelativeSource={RelativeSource Mode=Self}}">
+          <ribbon:RibbonButton.LargeIcon>
+            <ControlTemplate>
+              <Path Data="M 1 15 L 10 24 L 30 4" Width="32" Height="32" StrokeThickness="4" Stroke="{Binding $parent[TemplatedControl].Foreground}"/>
+            </ControlTemplate>
+          </ribbon:RibbonButton.LargeIcon>
+          <ribbon:RibbonButton.Icon>
+            <ControlTemplate>
+              <Path Data="M 0.5 7 L 5 11.5 L 15 1.5" Width="16" Height="16" StrokeThickness="2" Stroke="{Binding $parent[TemplatedControl].Foreground}"/>
+            </ControlTemplate>
+          </ribbon:RibbonButton.Icon>
+        </ribbon:RibbonButton>
+        <ribbon:RibbonButton Content="No" MinSize="Large" ToolTip.Tip="No" ribbon:KeyTip.KeyTipKeys="N" QuickAccessIcon="{Binding Icon, RelativeSource={RelativeSource Mode=Self}}">
+          <ribbon:RibbonButton.LargeIcon>
+            <ControlTemplate>
+              <Path Data="M 2 2 L 30 30 M 30 2 L 2 30" Width="32" Height="32" StrokeThickness="4" Stroke="{Binding $parent[TemplatedControl].Foreground}"/>
+            </ControlTemplate>
+          </ribbon:RibbonButton.LargeIcon>
+          <ribbon:RibbonButton.Icon>
+            <ControlTemplate>
+              <Path Data="M 1 1 L 15 15 M 15 1 L 1 15" Width="16" Height="16" StrokeThickness="2" Stroke="{Binding $parent[TemplatedControl].Foreground}"/>
+            </ControlTemplate>
+          </ribbon:RibbonButton.Icon>
+        </ribbon:RibbonButton>
+      </ribbon:RibbonGroupBox>
+    </ribbon:RibbonTab.Groups>
+  </ribbon:RibbonTab>
+  <ribbon:RibbonTab Header="Test C" ribbon:KeyTip.KeyTipKeys="N">
+    <ribbon:RibbonTab.Groups>
+      <ribbon:RibbonGroupBox Header="Test Group lel" Command="{Binding OnClickCommand}" ribbon:KeyTip.KeyTipKeys="D1">
+        <ribbon:RibbonButton Content="Non't" MinSize="Large" ToolTip.Tip="Non't" ribbon:KeyTip.KeyTipKeys="A">
+          <ribbon:RibbonButton.LargeIcon>
+            <ControlTemplate>
+              <Panel Width="32" Height="32">
+                <Ellipse Stroke="{Binding $parent[TemplatedControl].Foreground}" StrokeThickness="4" Margin="2,4,2,0">
+                  <Ellipse.Clip>
+                    <PathGeometry>
+                      <PathFigure StartPoint="0,0" IsClosed="True">
+                          <LineSegment Point="8,0"/>
+                          <LineSegment Point="8,11"/>
+                          <LineSegment Point="19,11"/>
+                          <LineSegment Point="19,0"/>
+                          <LineSegment Point="28,0"/>
+                          <LineSegment Point="28,28"/>
+                          <LineSegment Point="0,28"/>
+                      </PathFigure>
+                    </PathGeometry>
+                  </Ellipse.Clip>
+                </Ellipse>
+                <Rectangle Width="4" Margin="0,0,0,9" Fill="{Binding $parent[TemplatedControl].Foreground}"/>
+              </Panel>
+            </ControlTemplate>
+          </ribbon:RibbonButton.LargeIcon>
+          <ribbon:RibbonButton.QuickAccessIcon>
+            <ControlTemplate>
+              <Panel Width="16" Height="16">
+                <Ellipse Stroke="{Binding $parent[TemplatedControl].Foreground}" StrokeThickness="2" Margin="1,2,1,0">
+                  <Ellipse.Clip>
+                    <PathGeometry>
+                      <PathFigure StartPoint="0,0" IsClosed="True">
+                          <LineSegment Point="4,0"/>
+                          <LineSegment Point="4,6"/>
+                          <LineSegment Point="10,6"/>
+                          <LineSegment Point="10,0"/>
+                          <LineSegment Point="14,0"/>
+                          <LineSegment Point="14,14"/>
+                          <LineSegment Point="0,14"/>
+                      </PathFigure>
+                    </PathGeometry>
+                  </Ellipse.Clip>
+                </Ellipse>
+                <Rectangle Width="2" Margin="0,1,0,5" Fill="{Binding $parent[TemplatedControl].Foreground}"/>
+              </Panel>
+            </ControlTemplate>
+          </ribbon:RibbonButton.QuickAccessIcon>
+        </ribbon:RibbonButton>
+        <ribbon:RibbonButton Content="Yesn't" MinSize="Large" ToolTip.Tip="Yesn't" ribbon:KeyTip.KeyTipKeys="B">
+          <ribbon:RibbonButton.LargeIcon>
+            <ControlTemplate>
+              <Panel Width="32" Height="32">
+                <Ellipse Stroke="{Binding $parent[TemplatedControl].Foreground}" StrokeThickness="4"/>
+                <Rectangle Width="4" Margin="0,9" Fill="{Binding $parent[TemplatedControl].Foreground}"/>
+              </Panel>
+            </ControlTemplate>
+          </ribbon:RibbonButton.LargeIcon>
+          <ribbon:RibbonButton.QuickAccessIcon>
+            <ControlTemplate>
+              <Panel Width="16" Height="16">
+                <Ellipse Stroke="{Binding $parent[TemplatedControl].Foreground}" StrokeThickness="2"/>
+                <Rectangle Width="2" Margin="0,4" Fill="{Binding $parent[TemplatedControl].Foreground}"/>
+              </Panel>
+            </ControlTemplate>
+          </ribbon:RibbonButton.QuickAccessIcon>
+        </ribbon:RibbonButton>
+      </ribbon:RibbonGroupBox>
+    </ribbon:RibbonTab.Groups>
+  </ribbon:RibbonTab>
+</ribbon:RibbonContextualTabGroup>
