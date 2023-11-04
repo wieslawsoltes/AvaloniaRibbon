@@ -40,6 +40,9 @@ namespace AvaloniaUI.Ribbon.Samples.Views
             var lightsToggleSwitch = this.Find<ToggleSwitch>("LightsToggleSwitch");
             lightsToggleSwitch.Checked += (sneder, e) => RefreshLights(FluentThemeMode.Light);
             lightsToggleSwitch.Unchecked += (sneder, e) => RefreshLights(FluentThemeMode.Dark);
+#if DEBUG
+            this.AttachDevTools();
+#endif
         }
 
         private void InitializeComponent()
